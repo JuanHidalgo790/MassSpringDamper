@@ -32,4 +32,4 @@ $Hz$ - frequency of the forcing function [Hz]
 
 $x_{0}$ - initial displacement [m]
 
-$dx_{0}$ - initial velocity [m/s]
+$\dot{x}_{0}$ - initial velocity [m/s]
