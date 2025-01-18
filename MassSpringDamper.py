@@ -23,32 +23,32 @@ omega = Hz*2*np.pi              # forcing function angular frequency [rad/s]
 tspan = np.linspace(0, 20, 1000)    # time span [s]
 
 ## Initial Conditions ######################################################################################
-y_0 = 0                                # initial displacement [m]
-dy_0 = 0                               # initial velocity [m/s]
+x_0 = 0                                # initial displacement [m]
+dx_0 = 0                               # initial velocity [m/s]
 
-Y0 = [y_0 , dy_0]                       # initial conditions vector
+X0 = [x_0 , dx_0]                       # initial conditions vector
 ###########################################################################################################
 ###########################################################################################################
 
-def vdp1(t, Y):
+def vdp1(t, X):
 
     F = f*np.sin(omega*t)
-    DY = np.matmul(np.array([[0, 1], [-k/m, -c/m]]),Y)+np.array([0, F/m])
-    return np.transpose(DY)
+    DX = np.matmul(np.array([[0, 1], [-k/m, -c/m]]),X)+np.array([0, F/m])
+    return np.transpose(DX)
 
-y = np.zeros((len(tspan), len(Y0)))   # array for solution
-y[0, :] = Y0
+x = np.zeros((len(tspan), len(Y0)))   # array for solution
+x[0, :] = X0
 
 r = integrate.ode(vdp1).set_integrator("dopri5")  # choice of method
-r.set_initial_value(Y0, tspan[0])   # initial values
+r.set_initial_value(X0, tspan[0])   # initial values
 for i in range(1, tspan.size):
-   y[i, :] = r.integrate(tspan[i]) # get one more value, add it to the array
+   x[i, :] = r.integrate(tspan[i]) # get one more value, add it to the array
    if not r.successful():
        raise RuntimeError("Could not integrate")
 
 # plot of the dynamic response
 fig, ax = plt.subplots()
-plt.plot(tspan, y[:,0],'r')
+plt.plot(tspan, x[:,0],'r')
 ax.set_title('Dynamic Response')
 ax.set_xlabel('t [s]')
 ax.set_ylabel('x(t) [m]')
@@ -58,7 +58,7 @@ ax.set_axisbelow(True)
 
 # plot of the phase diagram
 fig, ax = plt.subplots()
-plt.plot(y[:,0], y[:,1], 'g')
+plt.plot(x[:,0], x[:,1], 'g')
 ax.set_title('Phase Diagram')
 ax.set_xlabel('x(t) [m]')
 ax.set_ylabel('xdot(t) [m/s]')
