@@ -7,6 +7,7 @@ A block with mass $m$ is attached to a spring ($k$) and a damper ($c$), and is a
 
 ![MassSpringDamperImage](https://github.com/user-attachments/assets/ce52353e-9520-4ec6-add0-d2e105a9f76a)
 
-The ODE that describes the dynamic of this system is then 
+Thus, the ODE that describes the dynamic of this system is then 
 
 $$m\ddot{x}+c\dot{x}+kx=f \sin{\omega t}$$
+
