@@ -11,3 +11,7 @@ Thus, the ODE that describes the dynamic of this system is then
 
 $$m\ddot{x}+c\dot{x}+kx=f \sin{\omega t}$$
 
+With this code, the Runge-Kutta integrator is used and the results are plotted
+
+![DynamicsMassSpringDamper](https://github.com/user-attachments/assets/c770c119-5046-4147-8922-9162c921a231)
+![PhaseDiagramMassSpringDamper](https://github.com/user-attachments/assets/9412d762-f5bd-4918-a472-10396c5aa56a)
