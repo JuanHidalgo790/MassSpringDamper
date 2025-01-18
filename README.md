@@ -3,10 +3,10 @@ Code to simulate the dynamics of a single mass attached to a spring and a damper
 
 ## Problem
 
-A block with mass $M$ is attached to a spring and a damper. Also, it is forced with a function $f(t)$. 
+A block with mass $m$ is attached to a spring ($k$) and a damper ($c$), and is also subject to external forcing, with function $f(t)=\sin{\omega t}$. 
 
-![MassSpringDamperImage](https://github.com/user-attachments/assets/c623b30b-ab8e-4530-bc29-431bc6d13c91)
+![MassSpringDamperImage](https://github.com/user-attachments/assets/ce52353e-9520-4ec6-add0-d2e105a9f76a)
 
-The dynamic of this system is described as
+The ODE that describes the dynamic of this system is then 
 
 $$m\ddot{x}+c\dot{x}+kx=f \sin{\omega t}$$
