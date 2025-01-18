@@ -30,11 +30,11 @@ $Hz$ - frequency of the forcing function [Hz]
 
 ## Time of the simulation
 
-$t0$ - Initial instant [s]
+$t_{0}$ - Initial instant [s]
 
-$tf$ - Final instant [s]
+$t_{f}$ - Final instant [s]
 
-$\Delta_t$ - Timestep [s]
+$\Delta t$ - Timestep [s]
 
 ## Initial Conditions
 
