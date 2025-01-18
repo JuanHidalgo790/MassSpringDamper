@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 ## Single MassSpringDamper System 
 
 ###########################################################################################################
+# Coded by Juan Andrés Santisteban Hidalgo, PhD
+###########################################################################################################
 ############### Parameters ################################################################################
 
 m = 1               # mass [kg]
@@ -20,7 +22,13 @@ Hz = 1.5                        # forcing function frequency [Hz]
 
 omega = Hz*2*np.pi              # forcing function angular frequency [rad/s]
 
-tspan = np.linspace(0, 20, 1000)    # time span [s]
+## Simulation time ########################################################################################
+
+t0 = 0                                  # initial time [s]
+tf = 20                                 # final time [s]
+delta_t = 0.02                          # time step [s]
+nt = int(np.round(tf/delta_t))          # number of time steps
+tspan = np.linspace(t0, tf, nt)         # time span [s]
 
 ## Initial Conditions ######################################################################################
 x_0 = 0                                # initial displacement [m]
