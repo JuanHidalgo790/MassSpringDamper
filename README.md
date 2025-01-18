@@ -19,8 +19,11 @@ Giving the parameters and the appropriate initial conditions, we get the dynamic
 ## Input Parameters
 
 $m$ - mass [kg]
+
 $k$ - stiffness [N/m]
+
 $c$ - damping [Ns/m]
 
 $f$ - amplitude of forcing function [N]
+
 $Hz$ - frequency of the forcing function [Hz]
