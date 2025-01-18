@@ -1,0 +1,68 @@
+import numpy as np
+from scipy import integrate
+import matplotlib.pyplot as plt
+
+## Single MassSpringDamper System 
+
+###########################################################################################################
+############### Parameters ################################################################################
+
+m = 1               # mass [kg]
+k = 10              # stifness [N/m]
+c = 5               # damping [Ns/m]
+
+wn = np.sqrt(k/m) / (2 * np.pi) # natural frequency [Hz]
+
+# print(f"The natural frequency is {wn} Hz.")
+
+f = 1                           # forcing function amplitude [N]
+Hz = 1.5                        # forcing function frequency [Hz]
+
+omega = Hz*2*np.pi              # forcing function angular frequency [rad/s]
+
+tspan = np.linspace(0, 20, 1000)    # time span [s]
+
+## Initial Conditions ######################################################################################
+y_0 = 0                                # initial displacement [m]
+dy_0 = 0                               # initial velocity [m/s]
+
+Y0 = [y_0 , dy_0]                       # initial conditions vector
+###########################################################################################################
+###########################################################################################################
+
+def vdp1(t, Y):
+
+    F = f*np.sin(omega*t)
+    DY = np.matmul(np.array([[0, 1], [-k/m, -c/m]]),Y)+np.array([0, F/m])
+    return np.transpose(DY)
+
+y = np.zeros((len(tspan), len(Y0)))   # array for solution
+y[0, :] = Y0
+
+r = integrate.ode(vdp1).set_integrator("dopri5")  # choice of method
+r.set_initial_value(Y0, tspan[0])   # initial values
+for i in range(1, tspan.size):
+   y[i, :] = r.integrate(tspan[i]) # get one more value, add it to the array
+   if not r.successful():
+       raise RuntimeError("Could not integrate")
+
+# plot of the dynamic response
+fig, ax = plt.subplots()
+plt.plot(tspan, y[:,0],'r')
+ax.set_title('Dynamic Response')
+ax.set_xlabel('t [s]')
+ax.set_ylabel('x(t) [m]')
+ax.grid()
+ax.set_axisbelow(True)
+# plt.show()
+
+# plot of the phase diagram
+fig, ax = plt.subplots()
+plt.plot(y[:,0], y[:,1], 'g')
+ax.set_title('Phase Diagram')
+ax.set_xlabel('x(t) [m]')
+ax.set_ylabel('xdot(t) [m/s]')
+ax.grid()
+ax.set_axisbelow(True)
+
+plt.show()
