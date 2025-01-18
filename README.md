@@ -28,6 +28,14 @@ $f$ - amplitude of forcing function [N]
 
 $Hz$ - frequency of the forcing function [Hz]
 
+## Time of the simulation
+
+$t0$ - Initial instant [s]
+
+$tf$ - Final instant [s]
+
+$Delta_t$ - Timestep [s]
+
 ## Initial Conditions
 
 $x_{0}$ - initial displacement [m]
