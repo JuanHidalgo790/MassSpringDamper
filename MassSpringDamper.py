@@ -36,7 +36,7 @@ def vdp1(t, X):
     DX = np.matmul(np.array([[0, 1], [-k/m, -c/m]]),X)+np.array([0, F/m])
     return np.transpose(DX)
 
-x = np.zeros((len(tspan), len(Y0)))   # array for solution
+x = np.zeros((len(tspan), len(X0)))   # array for solution
 x[0, :] = X0
 
 r = integrate.ode(vdp1).set_integrator("dopri5")  # choice of method
