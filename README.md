@@ -27,3 +27,9 @@ $c$ - damping [Ns/m]
 $f$ - amplitude of forcing function [N]
 
 $Hz$ - frequency of the forcing function [Hz]
+
+## Initial Conditions
+
+$x_{0}$ - initial displacement [m]
+
+$dx_{0}$ - initial velocity [m/s]
