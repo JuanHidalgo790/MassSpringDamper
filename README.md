@@ -34,7 +34,7 @@ $t0$ - Initial instant [s]
 
 $tf$ - Final instant [s]
 
-$Delta_t$ - Timestep [s]
+$\Delta_t$ - Timestep [s]
 
 ## Initial Conditions
 
